@@ -9,6 +9,7 @@ function run(command, args) {
     cwd: rootDir,
     stdio: 'inherit',
     shell: false,
+    env: process.env,
   });
 
   if (result.error) {
@@ -20,5 +21,10 @@ function run(command, args) {
   }
 }
 
-run(process.execPath, [path.join(rootDir, 'node_modules', 'vite', 'bin', 'vite.js'), 'build']);
+if (process.platform === 'win32') {
+  run('cmd.exe', ['/d', '/s', '/c', 'npx vite build']);
+} else {
+  run('/bin/bash', ['-lc', 'npx vite build']);
+}
+
 run(process.execPath, [path.join(rootDir, 'scripts', 'build-server.mjs')]);
