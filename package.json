@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "npm run build:client; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; npm run build:server",
-    "build:client": "vite build",
+    "build": "node scripts/build.mjs",
+    "build:client": "node ./node_modules/vite/bin/vite.js build",
     "build:server": "node scripts/build-server.mjs",
     "start": "node dist/server.js",
     "preview": "vite preview",
-    "clean": "rm -rf dist server.js",
+    "clean": "node -e \"const fs=require('fs'); ['dist','server.js'].forEach((p)=>fs.rmSync(p,{recursive:true,force:true}));\"",
     "lint": "tsc --noEmit",
     "test": "vitest run"
   },

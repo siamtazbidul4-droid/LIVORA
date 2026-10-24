@@ -22,6 +22,12 @@ Demo catalog and account seeding is available only outside production.
 - `npm run build` builds the browser app and server bundle.
 - `npm start` starts the built server.
 
+The build scripts intentionally avoid PowerShell-only syntax so they remain
+compatible with Linux Render builds while keeping the repo's Windows PowerShell
+workflow intact for local development. When deploying on Render, set
+`NPM_CONFIG_SCRIPT_SHELL=/bin/bash` (or pass it in the Build Command) to
+override the repo-local Windows PowerShell setting for the build environment.
+
 Production startup requires a reachable MongoDB database and a configured
 `JWT_SECRET`. Production does not seed demo users or catalog data. When both
 administrator variables are configured, startup creates the administrator
