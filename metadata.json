@@ -1,0 +1,6 @@
+{
+  "name": "NOVARA COMMERCE — Premium Retail & Home Living",
+  "description": "Production-grade full-stack e-commerce platform for Bangladesh featuring comprehensive product catalog, cross-lingual search, Redux Toolkit cart, authenticated checkout, order management, and administrative operations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
